@@ -1,5 +1,5 @@
-import { Temporal } from "@js-temporal/polyfill";
-import { number, string, z } from "zod";
+import { Temporal } from "@js-temporal/polyfill"
+import { number, string, z } from "zod"
 
 const sessionTypeSchema = z.enum([
   "En",
@@ -16,21 +16,19 @@ const sessionTypeSchema = z.enum([
   "Co",
   "CS",
   "FB",
-]);
+])
 
-const frenchDateFormat = /^\d{1,2}\/\d{1,2}\/\d{4}$/gi;
-
-const percentSchema = number().min(0).max(100);
+const percentSchema = number().min(0).max(100)
 export const trainingSessionSchema = z.object({
   date: string()
-    .nonempty()
-    .regex(frenchDateFormat)
+    .min(1)
     .transform((stringDate) => {
-      const [day, month, year] = stringDate.split("/").map(Number);
-      return Temporal.PlainDate.from(
-        { day, month, year },
-        { overflow: "reject" },
-      );
+      const d = new Date(stringDate)
+      return Temporal.PlainDate.from({
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+      })
     }),
   sessionType: sessionTypeSchema.optional(),
   volume: percentSchema.optional(),
@@ -41,5 +39,5 @@ export const trainingSessionSchema = z.object({
   comments: string().optional(),
   intensity: percentSchema.optional(),
   load: percentSchema.optional(),
-});
-export type TrainingSession = z.infer<typeof trainingSessionSchema>;
+})
+export type TrainingSession = z.infer<typeof trainingSessionSchema>
