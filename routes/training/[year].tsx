@@ -23,14 +23,28 @@ export default function Visualization(props: PageProps<TrainingSession[]>) {
 
   const sessions = trainingSessionSchema.array().parse(data)
 
+  const numberYear = Number(year)
   const yearSession = sessions.filter((session) =>
-    session.date.year === Number(year)
+    session.date.year === numberYear
   )
 
+  const nextYear = numberYear + 1
+  const previousYear = numberYear - 1
   return (
     <>
       <div>An overview of my training in {year}</div>
-      <YearGrid gridContent={yearSession} />
+      {yearSession.length === 0
+        ? <span>No record</span>
+        : <YearGrid gridContent={yearSession} />}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <a href={`./${previousYear}`}>{previousYear}</a>
+        <a href={`./${nextYear}`}>{nextYear}</a>
+      </div>
     </>
   )
 }
