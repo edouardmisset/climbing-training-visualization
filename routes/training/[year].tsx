@@ -5,16 +5,16 @@ import { YearGrid } from "../../components/year-grid.tsx"
 
 export const handler: Handlers<TrainingSession[]> = {
   async GET(_req, ctx) {
-    const training = await fetch(
-      `https://climbing-back.deno.dev/api/training`,
+    const { data } = await fetch(
+      `https://climbing-back.deno.dev/api/training?year=${
+        ctx.params?.year ?? ""
+      }`,
     )
       .then(
         (res) => res.json(),
       )
 
-    console.log(training.data)
-
-    return await ctx.render(training.data)
+    return await ctx.render(data)
   },
 }
 
