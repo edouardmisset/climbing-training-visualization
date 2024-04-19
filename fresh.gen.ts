@@ -4,7 +4,7 @@
 
 import * as $_404 from "./routes/_404.tsx"
 import * as $_app from "./routes/_app.tsx"
-import * as $api_training_data from "./routes/api/training-data.ts"
+import * as $api_ascents from "./routes/api/ascents.ts"
 import * as $index from "./routes/index.tsx"
 import * as $training_year_ from "./routes/training/[year].tsx"
 
@@ -14,7 +14,7 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
-    "./routes/api/training-data.ts": $api_training_data,
+    "./routes/api/ascents.ts": $api_ascents,
     "./routes/index.tsx": $index,
     "./routes/training/[year].tsx": $training_year_,
   },
