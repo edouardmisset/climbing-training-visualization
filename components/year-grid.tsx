@@ -1,3 +1,4 @@
+import Color from "colorjs.io"
 import { JSX } from "preact"
 import { TrainingSession } from "types/training.ts"
 import {
@@ -5,10 +6,7 @@ import {
   convertSessionTypeToBackgroundColor,
   createTrainingTooltip,
   getColorVariant,
-  roundToTen,
 } from "../helpers/training.ts"
-import Color from "colorjs.io"
-import { Temporal } from "@js-temporal/polyfill"
 
 export function YearGrid(
   props: JSX.HTMLAttributes<HTMLDivElement> & {

@@ -8,7 +8,7 @@ import * as $api_ascents from "./routes/api/ascents.ts"
 import * as $index from "./routes/index.tsx"
 import * as $training_year_ from "./routes/training/[year].tsx"
 
-import { type Manifest } from "$fresh/server.ts"
+import type { Manifest } from "$fresh/server.ts"
 
 const manifest = {
   routes: {
