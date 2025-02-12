@@ -5,7 +5,7 @@ import { YearGrid } from "../../components/year-grid.tsx"
 
 const apiBaseUrl = Deno.env.get("env") === "development"
   ? `http://localhost:8000`
-  : `https://climbing-back.deno.dev/`
+  : `https://climbing-back.deno.dev`
 
 export const handler: Handlers<TrainingSession[]> = {
   async GET(_req, ctx) {
