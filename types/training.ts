@@ -6,7 +6,7 @@ const sessionTypeSchema = z.enum([
   "PE",
   "SE",
   "MS",
-  "Ex",
+  "Out",
   "Po",
   "Ta",
   "Ro",
