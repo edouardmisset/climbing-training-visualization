@@ -1,7 +1,8 @@
-# Fresh project
+# Training Calendar Visualization
 
-Your new Fresh project is ready to go. You can follow the Fresh "Getting
-Started" guide here: <https://fresh.deno.dev/docs/getting-started>
+This project was done using deno's front-end framework Fresh: <https://fresh.deno.dev/docs/getting-started>  
+
+Here we draw inspiration from Github's contribution yearly calendar to display our training sessions.
 
 ## Usage
 
@@ -11,7 +12,7 @@ Make sure to install Deno:
 Then start the project:
 
 ```sh
-deno task start
+deno task dev
 ```
 
 This will watch the project directory and restart as necessary.
