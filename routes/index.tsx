@@ -1,9 +1,18 @@
 export default function Home() {
   return (
-    <div class="px-4 py-8 mx-auto bg-[#86efac]">
-      <a href={`/training/${new Date(Date.now()).getFullYear()}`}>
+    <h1
+      style={{
+        fontSize: "8rem",
+        display: "grid",
+        height: "100vh",
+        width: "100vw",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <a href={`/training/${new Date().getFullYear()}`}>
         Training Viz
       </a>
-    </div>
+    </h1>
   )
 }
