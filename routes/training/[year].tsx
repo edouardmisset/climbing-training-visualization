@@ -9,22 +9,23 @@ const apiBaseUrl = Deno.env.get("env") === "development"
 
 export const handler: Handlers<TrainingSession[]> = {
   async GET(_req, ctx) {
-    const { data } = await fetch(
+    const sessions = await fetch(
       `${apiBaseUrl}/api/training?year=${ctx.params?.year ?? ""}`,
     )
       .then(
-        (res) => res.json(),
+        (res) => (res.json()),
+      ).then(
+        ({ data }) => trainingSessionSchema.array().parse(data),
       )
 
-    return await ctx.render(data)
+    return await ctx.render(sessions)
   },
 }
 
 export default function Visualization(props: PageProps<TrainingSession[]>) {
-  const { params: { year }, data } = props
+  const { params: { year }, data: sessions } = props
 
   const numberYear = Number(year)
-  const sessions = trainingSessionSchema.array().parse(data)
 
   const nextYear = numberYear + 1
   const previousYear = numberYear - 1
